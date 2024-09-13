@@ -1,0 +1,1007 @@
+2024.09.13 11:41:29.401310 [ 1 ] {} <Error> Application: Listen [::]:8123 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:41:29.401638 [ 1 ] {} <Error> Application: Listen [::]:9000 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:41:29.402012 [ 1 ] {} <Error> Application: Listen [::]:9009 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:41:29.402294 [ 1 ] {} <Error> Application: Listen [::]:9004 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:42:11.432427 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.435148 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.488625 [ 71 ] {af612fee-8f67-4c10-8674-a078ffda220a} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35650) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.491165 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.491964 [ 71 ] {f0c9f16a-eb96-4a98-a7a6-9b1be005cccb} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35662) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.494228 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.494967 [ 71 ] {961aad96-673b-4ee4-82d4-135e8a0e7e4f} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35670) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.497081 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.497756 [ 71 ] {8f123176-13d8-49e4-b42e-159768eb779f} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35682) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.499822 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.500508 [ 71 ] {cda81e1f-6362-411c-8726-5bfc8794a182} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35694) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.502489 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.503149 [ 71 ] {137d6929-e219-44ae-a9ac-c968cdef10ce} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35698) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.504975 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.505676 [ 71 ] {13de14a2-e3e3-42d0-a784-1518eafdab0c} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35704) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.508037 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.508660 [ 71 ] {4e7f5bec-3592-4244-a623-d0a638409d41} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35710) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.510579 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.511215 [ 71 ] {df6a1a5d-5904-4a60-91bc-0f7578d9aae3} <Error> executeQuery: Code: 60, e.displayText() = DB::Exception: Table default.migrations_local doesn't exist. (version 20.3.9.70 (official build)) (from 172.18.0.6:35720) (in query: SELECT group, migration_id, status FROM migrations_local FINAL WHERE group IN ('system', 'events', 'transactions', 'discover', 'outcomes', 'metrics', 'sessions', 'replays', 'generic_metrics')), Stack trace (when copying this message, always include the lines below):
+
+0. Poco::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x105351b0 in /usr/bin/clickhouse
+1. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int) @ 0x8f4172d in /usr/bin/clickhouse
+2. DB::Context::getTableImpl(DB::StorageID const&, std::__1::optional<DB::Exception>*) const @ 0xcfe2a24 in /usr/bin/clickhouse
+3. DB::Context::getTable(DB::StorageID const&) const @ 0xcfe2bbb in /usr/bin/clickhouse
+4. DB::Context::getTable(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) const @ 0xcfe2c7d in /usr/bin/clickhouse
+5. DB::JoinedTables::getLeftTableStorage() @ 0xd454892 in /usr/bin/clickhouse
+6. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, std::__1::shared_ptr<DB::IBlockInputStream> const&, std::__1::optional<DB::Pipe>, std::__1::shared_ptr<DB::IStorage> const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13b6d1 in /usr/bin/clickhouse
+7. DB::InterpreterSelectQuery::InterpreterSelectQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd13c619 in /usr/bin/clickhouse
+8. DB::InterpreterSelectWithUnionQuery::InterpreterSelectWithUnionQuery(std::__1::shared_ptr<DB::IAST> const&, DB::Context const&, DB::SelectQueryOptions const&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xd341686 in /usr/bin/clickhouse
+9. DB::InterpreterFactory::get(std::__1::shared_ptr<DB::IAST>&, DB::Context&, DB::QueryProcessingStage::Enum) @ 0xd0909b4 in /usr/bin/clickhouse
+10. ? @ 0xd550655 in /usr/bin/clickhouse
+11. DB::executeQuery(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, DB::Context&, bool, DB::QueryProcessingStage::Enum, bool, bool) @ 0xd553441 in /usr/bin/clickhouse
+12. DB::TCPHandler::runImpl() @ 0x9024489 in /usr/bin/clickhouse
+13. DB::TCPHandler::run() @ 0x9025470 in /usr/bin/clickhouse
+14. Poco::Net::TCPServerConnection::start() @ 0xe3ac69b in /usr/bin/clickhouse
+15. Poco::Net::TCPServerDispatcher::run() @ 0xe3acb1d in /usr/bin/clickhouse
+16. Poco::PooledThread::run() @ 0x105c3317 in /usr/bin/clickhouse
+17. Poco::ThreadImpl::runnableEntry(void*) @ 0x105bf11c in /usr/bin/clickhouse
+18. ? @ 0x105c0abd in /usr/bin/clickhouse
+19. start_thread @ 0x76db in /lib/x86_64-linux-gnu/libpthread-2.27.so
+20. __clone @ 0x12188f in /lib/x86_64-linux-gnu/libc-2.27.so
+
+2024.09.13 11:42:11.515097 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.521390 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.523426 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.595987 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.598075 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.601412 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.611255 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.614098 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.618398 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.620268 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.622997 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.631804 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.640450 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.648915 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.657402 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.665511 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.674002 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.682418 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.690509 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.699439 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.708234 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.710647 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.715850 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.717706 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.720602 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.730210 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.732843 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.736929 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.739329 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.741889 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.750745 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.753786 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.758413 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.760717 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.763561 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.773664 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.776136 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.780593 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.783090 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.785836 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.795075 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.797611 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.801908 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.804246 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.806946 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.812948 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.815821 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.819947 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.822168 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.824963 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.830998 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.833317 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.837254 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.839543 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.842136 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.851129 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.860036 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.862570 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.866802 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.869153 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.871811 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.874261 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.876771 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.883393 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.885966 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.889186 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.898454 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.907331 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.909142 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.915232 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.918029 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.922110 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.924378 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.927228 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.937360 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.940199 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.944180 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.946680 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.949635 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.959314 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.968661 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.971154 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.976090 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:11.978429 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.001279 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.004280 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.025389 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.045651 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.066303 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.085743 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.105268 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.125188 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.145031 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.164711 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.184127 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.203745 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.223500 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.243565 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.263986 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.267127 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.269851 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.273786 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.276091 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.278753 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.280129 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.282606 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.289481 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.291849 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.294449 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.296243 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.298700 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.302691 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.304902 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.307669 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.316760 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.325770 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.334866 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.343632 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.346416 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.351745 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.354492 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.357990 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.361608 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.365565 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.368093 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.370855 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.381006 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.383904 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.389725 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.391928 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.394876 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.403395 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.406074 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.411617 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.413677 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.416483 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.419230 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.421670 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.426388 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.428345 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.431306 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.438626 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.445379 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.452161 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.458754 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.465396 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.471774 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.478073 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.485269 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.492045 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.498521 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.505832 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.512852 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.519941 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.526734 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.533497 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.540378 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.542939 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.547216 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.549284 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.552083 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.561031 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.563513 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.567517 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.569288 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.572204 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.580220 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.583047 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.587266 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.589291 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.592283 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.600071 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.607883 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.610758 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.615960 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.618076 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.620975 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.629141 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.636747 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.644095 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.651663 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.654343 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.658277 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.660230 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.662781 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.670692 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.673264 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.677191 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.679061 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.681661 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.689649 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.697886 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.700600 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.704781 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.706607 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.709281 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.718368 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.721053 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.725423 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.727541 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.730497 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.738748 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.741408 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.746962 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.748988 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.751866 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.760243 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.768258 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.776299 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.784599 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.793040 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.802029 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.804487 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.808584 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.810459 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.813249 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.822118 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.831568 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.834087 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.838177 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.840054 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.842850 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.854185 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.863559 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.866123 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.870165 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.872159 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.874872 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.884400 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.887001 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.890813 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.892828 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.895535 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.905354 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.907783 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.912331 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.914394 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.917177 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.927133 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.929593 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.933519 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.935502 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.938105 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.947427 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.950047 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.954609 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.956575 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.959412 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.970101 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.979519 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.989143 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:12.998687 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.008648 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.018548 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.029291 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.039739 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.050280 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.061016 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.071584 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.082926 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.093808 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.105138 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.116772 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.128707 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.140123 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.151836 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.163379 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.175301 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.177930 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.181948 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.183820 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.186517 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.199272 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.211922 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.214443 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.218488 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.220335 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.223069 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.236123 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.238720 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.244134 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.246151 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.249225 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.255844 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.258501 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.262682 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.264591 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.267229 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.272518 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.278055 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.280642 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.284615 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.286621 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.289412 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.296186 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.298744 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.302921 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.305444 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.308280 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.314259 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.319904 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.322502 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.326626 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.329106 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.331905 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.337945 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.340725 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.345644 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.348157 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.350988 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.356967 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.360012 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.364162 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.366497 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.369462 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.375562 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.378184 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.383147 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.385446 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.388126 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.394227 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.399322 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.403775 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.406241 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.409974 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.412414 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.415012 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.420286 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.425699 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.428601 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.433154 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.435475 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.438287 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.444024 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.449128 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.454331 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.460275 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.463227 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.467573 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.470185 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.473113 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.474485 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.480151 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.482955 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.486944 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.489331 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.492131 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.492182 [ 71 ] {} <Warning> Settings: Unknown setting materialize_ttl_on_modify, skipping
+2024.09.13 11:42:13.498358 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.498436 [ 71 ] {} <Warning> Settings: Unknown setting materialize_ttl_on_modify, skipping
+2024.09.13 11:42:13.504519 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.507104 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.511496 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.513964 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.516775 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.522953 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.528971 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.531647 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.535706 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.538154 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.541075 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.547580 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.550543 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.555506 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.557941 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.560978 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.567259 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.573199 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.575825 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.583119 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.585926 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.588941 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.595137 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.597970 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.602284 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.604825 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.607909 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.614664 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.620548 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.626193 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.632523 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.638606 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.642177 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.646562 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.649404 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.652570 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.660023 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.662711 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.667030 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.669635 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.672492 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.678660 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.684781 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.690589 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.696137 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.700844 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.703673 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.707723 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.710202 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.714339 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.721149 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.723990 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.728022 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.730500 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.733451 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.740529 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.747220 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.753392 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.759820 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.765642 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.768477 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.772776 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.775443 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.778438 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.784224 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.786942 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.791294 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.793768 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.796886 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.802690 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.805355 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.809637 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.812179 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.815228 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.821458 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.824232 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.828584 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.830938 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.833778 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.839249 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.841911 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.846042 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.848997 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.852475 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.858553 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.861567 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.865517 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.868069 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.870811 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.877264 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.879966 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.883917 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.886213 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.889130 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.894811 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.897452 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.901807 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.904280 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.907455 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.912968 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.915587 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.919537 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.921933 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.924758 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.930473 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.933411 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.937621 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.940494 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.943420 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.948687 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.951303 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.955269 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.957657 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.960354 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.966028 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.968782 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.973050 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.975590 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.978962 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.986016 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.989104 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.993669 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:13.996387 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.000034 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.007608 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.014105 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.020758 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.023671 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.027989 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.030330 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.033166 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.040109 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.042817 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.047813 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.050320 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.053358 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.059252 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.064035 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.069116 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.071859 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.076453 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.078737 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.081742 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.088487 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.091170 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.095308 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.097682 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.100722 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.107028 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.111881 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.117057 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.119587 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.124276 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.126611 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.129758 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.136823 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.142232 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.147987 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.153333 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.156208 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.160728 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.163507 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.166666 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.173065 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.179563 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.185743 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.192681 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.195590 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.200304 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.203034 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.205995 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.208124 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.210923 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.215125 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.217533 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.220361 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.226810 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.229807 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.234564 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.237166 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.240488 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.247138 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.253667 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.259764 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.266099 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.268856 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.273385 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.275762 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.278569 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.285611 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.292502 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.298699 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.305289 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.307952 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.312107 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.314404 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.317425 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.324220 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.326733 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.331120 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.333747 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.336748 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.342372 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.345211 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.349414 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.351865 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.354556 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.355990 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.361948 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.363376 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.368644 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.371272 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.375269 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.377692 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.380711 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.382208 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.383617 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.384893 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.386176 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.387439 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.388631 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.389930 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.391117 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.392316 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.393568 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.394806 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.396147 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.397556 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.398854 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.401647 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.403077 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.404372 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.405693 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.406855 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.408579 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.409725 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.410878 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.412128 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.413627 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.416088 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.420184 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.422472 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.425203 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.426734 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.428291 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.429702 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.431020 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.432480 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.433799 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.435791 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.438211 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.441914 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.444108 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.447467 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.454544 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.457268 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.462592 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.465120 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.467899 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.474578 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.480090 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.485486 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.488212 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.493192 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.495626 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.498696 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.505473 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.511471 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.517499 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.523359 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.529135 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.534497 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.540470 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.546413 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.552611 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.559074 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.562035 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.567956 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.570740 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.573969 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.576030 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.584864 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.587476 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.591991 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.594688 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.597910 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.597955 [ 71 ] {} <Warning> Settings: Unknown setting materialize_ttl_on_modify, skipping
+2024.09.13 11:42:14.605620 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.605673 [ 71 ] {} <Warning> Settings: Unknown setting materialize_ttl_on_modify, skipping
+2024.09.13 11:42:14.613781 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.637333 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.643278 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.645765 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.649084 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.657739 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.664555 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.681283 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.685816 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.688512 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.691380 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.700149 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.702918 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.707894 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.710348 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.713744 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.724275 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.727138 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.732068 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.734680 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.738053 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.748543 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.755651 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.763808 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.766616 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.771946 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.774731 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.777867 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.786651 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.793743 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.800559 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.807561 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.814470 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.821227 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.828321 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.835325 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.842725 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.850772 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.853657 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.857919 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.860303 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.862978 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.871614 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.874418 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.879991 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.882723 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.885675 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.894476 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.897313 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.901785 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.904375 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.907230 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.915437 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.923351 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.925987 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.930927 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.933163 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.935925 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.942213 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.948404 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.954412 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.960565 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.966847 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.973754 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.976231 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.981137 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.983659 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.986461 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.993494 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:14.996263 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.000774 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.003329 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.006327 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.013171 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.016100 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.020843 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.023145 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.026155 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.032674 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.035240 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.039615 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.041703 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.044503 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.045900 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.051893 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.054369 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.058223 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.060540 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.063453 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.066109 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.070384 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.072795 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.075460 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.082680 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.089827 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.096973 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.103594 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.110179 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.117859 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.120715 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.125108 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.127548 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.130587 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.137562 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.140428 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.144766 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.147048 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.149787 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.155448 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.158029 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.162473 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.165252 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.168690 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.174763 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.180634 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.186613 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.192495 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.198206 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.204656 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.207256 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.211853 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.214071 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.217165 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.224046 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.226470 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.230674 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.232864 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.235671 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.241136 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:42:15.243755 [ 71 ] {} <Warning> Settings: Unknown setting database_atomic_wait_for_drop_and_detach_synchronously, skipping
+2024.09.13 11:46:25.344366 [ 1 ] {} <Error> Application: Listen [::]:8123 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:46:25.346737 [ 1 ] {} <Error> Application: Listen [::]:9000 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:46:25.347100 [ 1 ] {} <Error> Application: Listen [::]:9009 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 11:46:25.347458 [ 1 ] {} <Error> Application: Listen [::]:9004 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 19:08:01.794528 [ 1 ] {} <Error> Application: Listen [::]:8123 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 19:08:01.810027 [ 1 ] {} <Error> Application: Listen [::]:9000 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 19:08:01.810532 [ 1 ] {} <Error> Application: Listen [::]:9009 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
+2024.09.13 19:08:01.810993 [ 1 ] {} <Error> Application: Listen [::]:9004 failed: Poco::Exception. Code: 1000, e.code() = 0, e.displayText() = DNS error: EAI: -9 (version 20.3.9.70 (official build)). If it is an IPv6 or IPv4 address and your host has disabled IPv6 or IPv4, then consider to specify not disabled IPv4 or IPv6 address to listen in <listen_host> element of configuration file. Example for disabled IPv6: <listen_host>0.0.0.0</listen_host> . Example for disabled IPv4: <listen_host>::</listen_host>
