@@ -1,0 +1,7 @@
+columns format version: 1
+5 columns:
+`group` String
+`migration_id` String
+`timestamp` DateTime
+`status` Enum8('completed' = 0, 'in_progress' = 1, 'not_started' = 2)
+`version` UInt64

@@ -1,0 +1,52 @@
+ATTACH TABLE replays_local
+(
+    `replay_id` UUID, 
+    `replay_type` LowCardinality(Nullable(String)), 
+    `error_sample_rate` Nullable(Float64), 
+    `session_sample_rate` Nullable(Float64), 
+    `event_hash` UUID, 
+    `segment_id` Nullable(UInt16), 
+    `trace_ids` Array(UUID), 
+    `_trace_ids_hashed` Array(UInt64) MATERIALIZED arrayMap(t -> cityHash64(t), trace_ids), 
+    `title` String, 
+    `url` Nullable(String), 
+    `urls` Array(String), 
+    `is_archived` Nullable(UInt8), 
+    `error_ids` Array(UUID), 
+    `_error_ids_hashed` Array(UInt64) MATERIALIZED arrayMap(t -> cityHash64(t), error_ids), 
+    `project_id` UInt64, 
+    `timestamp` DateTime, 
+    `replay_start_timestamp` Nullable(DateTime), 
+    `platform` LowCardinality(String), 
+    `environment` LowCardinality(Nullable(String)), 
+    `release` Nullable(String), 
+    `dist` Nullable(String), 
+    `ip_address_v4` Nullable(IPv4), 
+    `ip_address_v6` Nullable(IPv6), 
+    `user` String, 
+    `user_id` Nullable(String), 
+    `user_name` Nullable(String), 
+    `user_email` Nullable(String), 
+    `os_name` Nullable(String), 
+    `os_version` Nullable(String), 
+    `browser_name` Nullable(String), 
+    `browser_version` Nullable(String), 
+    `device_name` Nullable(String), 
+    `device_brand` Nullable(String), 
+    `device_family` Nullable(String), 
+    `device_model` Nullable(String), 
+    `sdk_name` String, 
+    `sdk_version` String, 
+    `tags.key` Array(String), 
+    `tags.value` Array(String), 
+    `retention_days` UInt16, 
+    `partition` UInt16, 
+    `offset` UInt64, 
+    INDEX bf_trace_ids_hashed _trace_ids_hashed TYPE bloom_filter() GRANULARITY 1, 
+    INDEX bf_error_ids_hashed _error_ids_hashed TYPE bloom_filter() GRANULARITY 1
+)
+ENGINE = ReplacingMergeTree()
+PARTITION BY (retention_days, toMonday(timestamp))
+ORDER BY (project_id, toStartOfDay(timestamp), cityHash64(replay_id), event_hash)
+TTL timestamp + toIntervalDay(retention_days)
+SETTINGS index_granularity = 8192

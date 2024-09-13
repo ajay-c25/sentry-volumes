@@ -1,0 +1,18 @@
+columns format version: 1
+16 columns:
+`session_id` UUID
+`distinct_id` UUID
+`quantity` UInt32
+`seq` UInt64
+`org_id` UInt64
+`project_id` UInt64
+`retention_days` UInt16
+`duration` UInt32
+`status` UInt8
+`errors` UInt16
+`received` DateTime
+`started` DateTime
+`release` LowCardinality(String)
+`environment` LowCardinality(String)
+`user_agent` LowCardinality(String)
+`os` LowCardinality(String)
